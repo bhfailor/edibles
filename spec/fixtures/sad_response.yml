@@ -1,0 +1,66 @@
+--- !ruby/object:Net::HTTPBadRequest
+http_version: '1.1'
+code: '400'
+message: Bad Request
+header:
+  server:
+  - openresty
+  date:
+  - Fri, 04 Mar 2016 16:21:46 GMT
+  content-type:
+  - application/json;charset=UTF-8
+  transfer-encoding:
+  - chunked
+  connection:
+  - close
+  x-ratelimit-limit:
+  - '1000'
+  x-ratelimit-remaining:
+  - '988'
+  x-powered-by:
+  - Undertow/1
+  set-cookie:
+  - BIGipServerndb-pool=282659594.20480.0000; path=/
+  age:
+  - '0'
+  via:
+  - http/1.1 api-umbrella (ApacheTrafficServer [cMsSf ])
+  x-cache:
+  - MISS
+body: |-
+  {
+      "errors": {
+          "error": [
+              {
+                  "status": 400,
+                  "parameter": "ndbno",
+                  "message": "No data for this ndbno"
+              }
+          ]
+      }
+  }
+read: true
+uri: !ruby/object:URI::HTTP
+  scheme: http
+  user: 
+  password: 
+  host: api.nal.usda.gov
+  port: 80
+  path: "/ndb/reports/"
+  query: ndbno=00000&type=s&format=json&api_key=gmTDakoSpaC2yxl2Qge3pTxFNzQ3hzwH4Psjv5kp
+  opaque: 
+  fragment: 
+  parser: !ruby/object:URI::RFC3986_Parser
+    regexp:
+      :SCHEME: !ruby/regexp /\A[A-Za-z][A-Za-z0-9+\-.]*\z/
+      :USERINFO: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=A-Z_a-z~])*\z/
+      :HOST: !ruby/regexp /\A(?:(?<IP-literal>\[(?:(?<IPv6address>(?:\h{1,4}:){6}(?<ls32>\h{1,4}:\h{1,4}|(?<IPv4address>(?<dec-octet>[1-9]\d|1\d{2}|2[0-4]\d|25[0-5]|\d)\.\g<dec-octet>\.\g<dec-octet>\.\g<dec-octet>))|::(?:\h{1,4}:){5}\g<ls32>|\h{,4}::(?:\h{1,4}:){4}\g<ls32>|(?:(?:\h{1,4}:)?\h{1,4})?::(?:\h{1,4}:){3}\g<ls32>|(?:(?:\h{1,4}:){,2}\h{1,4})?::(?:\h{1,4}:){2}\g<ls32>|(?:(?:\h{1,4}:){,3}\h{1,4})?::\h{1,4}:\g<ls32>|(?:(?:\h{1,4}:){,4}\h{1,4})?::\g<ls32>|(?:(?:\h{1,4}:){,5}\h{1,4})?::\h{1,4}|(?:(?:\h{1,4}:){,6}\h{1,4})?::)|(?<IPvFuture>v\h+\.[!$&-.0-;=A-Z_a-z~]+))\])|\g<IPv4address>|(?<reg-name>(?:%\h\h|[!$&-.0-9;=A-Z_a-z~])*))\z/
+      :ABS_PATH: !ruby/regexp /\A\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*(?:\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*)*\z/
+      :REL_PATH: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~])+(?:\/(?:%\h\h|[!$&-.0-;=@-Z_a-z~])*)*\z/
+      :QUERY: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~\/?])*\z/
+      :FRAGMENT: !ruby/regexp /\A(?:%\h\h|[!$&-.0-;=@-Z_a-z~\/?])*\z/
+      :OPAQUE: !ruby/regexp /\A(?:[^\/].*)?\z/
+      :PORT: !ruby/regexp /\A[\x09\x0a\x0c\x0d ]*\d*[\x09\x0a\x0c\x0d ]*\z/
+decode_content: true
+socket: 
+body_exist: true
