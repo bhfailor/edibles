@@ -29,7 +29,7 @@ class Food
   end
 
   private
-  AUTH = '&api_key=' + ENV['DATA_DOT_GOV_API_KEY']
+  AUTH = "&api_key=#{ENV['DATA_DOT_GOV_API_KEY']}"
   BASE = 'http://api.nal.usda.gov/ndb/reports/?'
 
   def assign_results
