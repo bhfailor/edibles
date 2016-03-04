@@ -1,5 +1,10 @@
+##
+# This class pulls specific nutrition data for a food that is present in the
+# United States Department of Agriculture, Agricultural Research Service,
+# National Nutrient Database (https://ndb.nal.usda.gov/ndb/doc/index)
 class Food
   attr_reader :errors, :results
+
   UNITS = 'string,,g,,USD,,g,,g,,calorie,,calorie,,calorie,,calorie,,calorie' \
           ',,g,,g,,g,,g,,g,,,,g,,g,,g,,g,,g,,mg,,mg,,g,,g,,IU,,mg,,mcg,,mg,,' \
           'mcg,,mg,,mg,,mg,,mg,,mcg,,mcg,,mg,,mg,,mg,,mg,,mg,,mg,,mg,,mg,,mg' \
@@ -24,17 +29,18 @@ class Food
     .split(',,')
 
   def initialize(args = {})
-    @code = args[:code]
+    @num = args[:number]
     assign_results unless errors_exist
   end
 
   private
+
   AUTH = "&api_key=#{ENV['DATA_DOT_GOV_API_KEY']}"
   BASE = 'http://api.nal.usda.gov/ndb/reports/?'
 
   def assign_results
- #   calc = Food::Calculator.new(sources: SOURCES,
- #                               food: body['report']['food']).calculation
+    # calc = Food::Calculator.new(sources: SOURCES,
+    #   food: body['report']['food']).calculation
     @results = {
       units: \
         'string,,g,,USD,,g,,g,,calorie,,calorie,,calorie,,calorie,,calorie' \
@@ -45,10 +51,9 @@ class Food
   end
 
   def errors_exist
-    @errors =
-      (body["errors"] ?
-       "#{body['errors']['error'].first['message']}: #{@code}" : nil)
-    return @errors ? true : false
+    @errors = "#{body['errors']['error'].first['message']}: #{@num}" \
+      if body['errors']
+    @errors ? true : false
   end
 
   def body
@@ -62,9 +67,8 @@ class Food
   def url
     @url ||= begin
                data = URI
-                 .encode_www_form(ndbno: @code, type: 's', format: 'json')
+                 .encode_www_form(ndbno: @num, type: 's', format: 'json')
                URI.parse(BASE + data + AUTH)
              end
   end
-
 end
