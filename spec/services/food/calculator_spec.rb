@@ -47,11 +47,32 @@ describe Food::Calculator do
                value: '0.0' })
   end
 
+  it 'returns the expected results for calories from carbs' do
+    expect(kalculator.results['calc carb Cal'])
+      .to eq({ name: 'carbohydrate E',
+               unit: 'calorie',
+               value: '85.3' })
+  end
+
   it 'returns the expected results for calories from fat' do
     expect(kalculator.results['calc fat Cal'])
       .to eq({ name: 'fat E',
                unit: 'calorie',
-               value: '100' }) # TODO: fix value
+               value: '1.2' })
+  end
+
+  it 'returns the expected results for calories from protein' do
+    expect(kalculator.results['calc protein Cal'])
+      .to eq({ name: 'protein E',
+               unit: 'calorie',
+               value: '10.5' })
+  end
+
+  it 'returns the expected results for calories from fat' do
+    expect(kalculator.results['calc alcohol Cal'])
+      .to eq({ name: 'alcohol E',
+               unit: 'calorie',
+               value: '0.0' })
   end
 
   it 'returns the expected results for price' do
