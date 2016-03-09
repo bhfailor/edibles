@@ -2,100 +2,197 @@ require 'rails_helper'
 
 describe Food::Calculator do
   let(:fixtures_dir) { File.join(Rails.root, 'spec', 'fixtures') }
-  let(:happy_response) { YAML
-      .load(File.open(File.join(fixtures_dir, 'happy_response.yml')))}
-  let(:fd) { JSON.parse(happy_response.read_body)['report']['food'] }
-  let(:kalculator) { Food::Calculator.new(sources: Food::SOURCES, food: fd) }
 
-  it 'returns the expected results for nutrients' do
-    expect(kalculator.results['208'])
-             .to eq( { name: "Energy", unit: "kcal", value: "97" })
+  context 'cod liver oil' do
+    let(:happy_response) { YAML
+        .load(File.open(File.join(fixtures_dir, 'happy_cod_oil.yml')))}
+    let(:fd) { JSON.parse(happy_response.read_body)['report']['food'] }
+    let(:kalculator) { Food::Calculator.new(sources: Food::SOURCES, food: fd) }
+
+    it 'returns the expected results for nutrients' do
+      expect(kalculator.results['208'])
+        .to eq( { name: "Energy", unit: "kcal", value: "902" })
+    end
+
+    it 'returns the expected results for food name' do
+      expect(kalculator.results['name'])
+        .to eq({ name: "food",
+                 unit: "string",
+                 value: "Fish oil, cod liver" })
+    end
+
+    it 'returns the expected results for ndbno' do
+      expect(kalculator.results['ndbno'])
+        .to eq({ name: 'ndb food number',
+                 unit: 'string',
+                 value: '04589' })
+    end
+
+    it 'returns the expected results for dft' do
+      expect(kalculator.results['dft'])
+        .to eq({ name: 'base mass',
+                 unit: 'g',
+                 value: '100' })
+    end
+
+    it 'returns the expected results for omega-3' do
+      expect(kalculator.results['calc omega-3'])
+        .to eq({ name: 'omega-3',
+                 unit: 'mg',
+                 value: '20671.0' })
+    end
+
+    it 'returns the expected results for omega-6' do
+      expect(kalculator.results['calc omega-6'])
+        .to eq({ name: 'omega-6',
+                 unit: 'mg',
+                 value: '935.0' })
+    end
+
+    it 'returns the expected results for calories from carbs' do
+      expect(kalculator.results['calc carb Cal'])
+        .to eq({ name: 'carbohydrate E',
+                 unit: 'calorie',
+                 value: '0.0' })
+    end
+
+    it 'returns the expected results for calories from fat' do
+      expect(kalculator.results['calc fat Cal'])
+        .to eq({ name: 'fat E',
+                 unit: 'calorie',
+                 value: '902.0' })
+    end
+
+    it 'returns the expected results for calories from protein' do
+      expect(kalculator.results['calc protein Cal'])
+        .to eq({ name: 'protein E',
+                 unit: 'calorie',
+                 value: '0.0' })
+    end
+
+    it 'returns the expected results for calories from fat' do
+      expect(kalculator.results['calc alcohol Cal'])
+        .to eq({ name: 'alcohol E',
+                 unit: 'calorie',
+                 value: '0.0' })
+    end
+
+    it 'returns the expected results for price' do
+      expect(kalculator.results['food price'])
+        .to eq({ name: 'price',
+                 unit: 'USD',
+                 value: 'user-specified' })
+    end
+
+    it 'returns the expected results for vegetable mass' do
+      expect(kalculator.results['vegetable grams'])
+        .to eq({ name: 'vegetable mass',
+                 unit: 'g',
+                 value: 'user-specified' })
+    end
+
+    it 'returns the expected results for fruit mass' do
+      expect(kalculator.results['fruit grams'])
+        .to eq({ name: 'fruit mass',
+                 unit: 'g',
+                 value: 'user-specified' })
+    end
   end
+  context 'baked russet potato' do
+    let(:happy_response) { YAML
+        .load(File.open(File.join(fixtures_dir, 'happy_response.yml')))}
+    let(:fd) { JSON.parse(happy_response.read_body)['report']['food'] }
+    let(:kalculator) { Food::Calculator.new(sources: Food::SOURCES, food: fd) }
 
-  it 'returns the expected results for food name' do
-    expect(kalculator.results['name'])
-      .to eq({ name: "food",
-               unit: "string",
-               value: "Potatoes, Russet, flesh and skin, baked" })
+    it 'returns the expected results for nutrients' do
+      expect(kalculator.results['208'])
+        .to eq( { name: "Energy", unit: "kcal", value: "97" })
+    end
+
+    it 'returns the expected results for food name' do
+      expect(kalculator.results['name'])
+        .to eq({ name: "food",
+                 unit: "string",
+                 value: "Potatoes, Russet, flesh and skin, baked" })
+    end
+
+    it 'returns the expected results for ndbno' do
+      expect(kalculator.results['ndbno'])
+        .to eq({ name: 'ndb food number',
+                 unit: 'string',
+                 value: '11356' })
+    end
+
+    it 'returns the expected results for dft' do
+      expect(kalculator.results['dft'])
+        .to eq({ name: 'base mass',
+                 unit: 'g',
+                 value: '100' })
+    end
+
+    it 'returns the expected results for omega-3' do
+      expect(kalculator.results['calc omega-3'])
+        .to eq({ name: 'omega-3',
+                 unit: 'mg',
+                 value: '13.0' })
+    end
+
+    it 'returns the expected results for omega-6' do
+      expect(kalculator.results['calc omega-6'])
+        .to eq({ name: 'omega-6',
+                 unit: 'mg',
+                 value: '41.0' })
+    end
+
+    it 'returns the expected results for calories from carbs' do
+      expect(kalculator.results['calc carb Cal'])
+        .to eq({ name: 'carbohydrate E',
+                 unit: 'calorie',
+                 value: '85.3' })
+    end
+
+    it 'returns the expected results for calories from fat' do
+      expect(kalculator.results['calc fat Cal'])
+        .to eq({ name: 'fat E',
+                 unit: 'calorie',
+                 value: '1.2' })
+    end
+
+    it 'returns the expected results for calories from protein' do
+      expect(kalculator.results['calc protein Cal'])
+        .to eq({ name: 'protein E',
+                 unit: 'calorie',
+                 value: '10.5' })
+    end
+
+    it 'returns the expected results for calories from fat' do
+      expect(kalculator.results['calc alcohol Cal'])
+        .to eq({ name: 'alcohol E',
+                 unit: 'calorie',
+                 value: '0.0' })
+    end
+
+    it 'returns the expected results for price' do
+      expect(kalculator.results['food price'])
+        .to eq({ name: 'price',
+                 unit: 'USD',
+                 value: 'user-specified' })
+    end
+
+    it 'returns the expected results for vegetable mass' do
+      expect(kalculator.results['vegetable grams'])
+        .to eq({ name: 'vegetable mass',
+                 unit: 'g',
+                 value: 'user-specified' })
+    end
+
+    it 'returns the expected results for fruit mass' do
+      expect(kalculator.results['fruit grams'])
+        .to eq({ name: 'fruit mass',
+                 unit: 'g',
+                 value: 'user-specified' })
+    end
   end
-
-  it 'returns the expected results for ndbno' do
-    expect(kalculator.results['ndbno'])
-      .to eq({ name: 'ndb food number',
-               unit: 'string',
-               value: '11356' })
-  end
-
-  it 'returns the expected results for dft' do
-    expect(kalculator.results['dft'])
-      .to eq({ name: 'base mass',
-               unit: 'g',
-               value: '100' })
-  end
-
-  it 'returns the expected results for omega-3' do
-    expect(kalculator.results['calc omega-3'])
-      .to eq({ name: 'omega-3',
-               unit: 'mg',
-               value: '0.0' })
-  end
-
-  it 'returns the expected results for omega-6' do
-    expect(kalculator.results['calc omega-6'])
-      .to eq({ name: 'omega-6',
-               unit: 'mg',
-               value: '0.0' })
-  end
-
-  it 'returns the expected results for calories from carbs' do
-    expect(kalculator.results['calc carb Cal'])
-      .to eq({ name: 'carbohydrate E',
-               unit: 'calorie',
-               value: '85.3' })
-  end
-
-  it 'returns the expected results for calories from fat' do
-    expect(kalculator.results['calc fat Cal'])
-      .to eq({ name: 'fat E',
-               unit: 'calorie',
-               value: '1.2' })
-  end
-
-  it 'returns the expected results for calories from protein' do
-    expect(kalculator.results['calc protein Cal'])
-      .to eq({ name: 'protein E',
-               unit: 'calorie',
-               value: '10.5' })
-  end
-
-  it 'returns the expected results for calories from fat' do
-    expect(kalculator.results['calc alcohol Cal'])
-      .to eq({ name: 'alcohol E',
-               unit: 'calorie',
-               value: '0.0' })
-  end
-
-  it 'returns the expected results for price' do
-    expect(kalculator.results['food price'])
-      .to eq({ name: 'price',
-               unit: 'USD',
-               value: 'user-specified' })
-  end
-
- it 'returns the expected results for vegetable mass' do
-    expect(kalculator.results['vegetable grams'])
-      .to eq({ name: 'vegetable mass',
-               unit: 'g',
-               value: 'user-specified' })
-  end
-
-  it 'returns the expected results for fruit mass' do
-    expect(kalculator.results['fruit grams'])
-      .to eq({ name: 'fruit mass',
-               unit: 'g',
-               value: 'user-specified' })
-  end
-
 end
 
 =begin

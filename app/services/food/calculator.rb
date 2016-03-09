@@ -122,7 +122,7 @@ class Food::Calculator
 
   def omega_3_value
     sum = 0.0
-    %w(851 627 852 629 857 631 621).each do |key|
+    %w(851 627 852 629 857 631 621 619).each do |key|
       sum += nutrient_hash[key] ? nutrient_hash[key]['value'].to_f*1000 : 0.0
     end
     sum.to_s # assume nutrient units are grams
@@ -130,7 +130,7 @@ class Food::Calculator
 
   def omega_6_value
     sum = 0.0
-    %w(675 685 672 853 855 858).each do |key|
+    %w(675 685 672 853 855 858 618).each do |key|
       sum += nutrient_hash[key] ? nutrient_hash[key]['value'].to_f*1000 : 0.0
     end
     sum.to_s # assume nutrient units are grams
