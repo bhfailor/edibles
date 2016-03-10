@@ -7,27 +7,20 @@ class Food::Calculator
   attr_reader :results
 
   def initialize(args = {})
-    @sources = args[:sources]
     @food    = args[:food]
     @results = {}
-    @sources.each do |s|
-      if /\d{3}/.match s
-        parse_nutrient(s)
-      else
-        send(s.to_sym) if respond_to? s.to_sym
-      end
-    end
+    args[:sources].each { |source| find_result_for source } if args[:sources]
+  end
+
+  def find_result_for(s)
+    return parse_nutrient(s) if /\d{3}/.match s
+    send(s.to_sym) if respond_to? s.to_sym
   end
 
   def parse_nutrient(nutrient_id)
     n = nutrient_hash[nutrient_id]
-    if n
-      @results[nutrient_id] =
-        { name: n['name'], unit: n['unit'], value: n['value'] }
-    else
-      nil
-    end
-    'ok'
+    @results[nutrient_id] =
+      n ? { name: n['name'], unit: n['unit'], value: n['value'] } : nil
   end
 
   def nutrient_hash

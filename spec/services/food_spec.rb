@@ -36,14 +36,10 @@ describe Food do
     end
 
     describe 'results hash' do
-      it 'has the correct units' do
-        # confirm the number of elements first, then the actual values
-        expect(food.results[:units].count).to eq Food::UNITS.count
-        expect(food.results[:units].count).to eq Food::SOURCES.count
-        expect(food.results[:units].count).to eq Food::NAMES.count
+      it 'has the correct keys' do
+        expect(food.results.keys).to eq Food::SOURCES
       end
-      
-      
+
 =begin
 I have the header values for names, units, and sources.  I can compare that
 with the calculated names and units.  And also calculate the values.

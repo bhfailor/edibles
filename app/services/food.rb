@@ -39,15 +39,8 @@ class Food
   BASE = 'http://api.nal.usda.gov/ndb/reports/?'
 
   def assign_results
-    # calc = Food::Calculator.new(sources: SOURCES,
-    #   food: body['report']['food']).calculation
-    @results = {
-      units: \
-        'string,,g,,USD,,g,,g,,calorie,,calorie,,calorie,,calorie,,calorie' \
-        ',,g,,g,,g,,g,,g,,,,g,,g,,g,,g,,g,,mg,,mg,,g,,g,,IU,,mg,,mcg,,mg,,' \
-        'mcg,,mg,,mg,,mg,,mg,,mcg,,mcg,,mg,,mg,,mg,,mg,,mg,,mg,,mg,,mg,,mg' \
-        ',,mg,,mg,,mg,,mcg,,mcg,,mg,,mg,,g,,g,,g,,mg,,mg,,string'.split(',,')
-    }
+    @results = Food::Calculator
+      .new(sources: SOURCES, food: body['report']['food']).results
   end
 
   def errors_exist
