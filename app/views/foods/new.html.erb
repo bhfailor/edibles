@@ -1,0 +1,7 @@
+<h1>edibles</h1>
+<h2>Specify a food from the USDA Nutritional Database for display</h2>
+<%= form_tag('/food', method: 'get') do %>
+  <%= label_tag(:ndbno, 'Display record for food with number:') %>
+  <%= text_field_tag(:ndbno) %>
+  <%= submit_tag('Specify')%>
+<% end %>
