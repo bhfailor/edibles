@@ -1,0 +1,9 @@
+%h1 edibles
+%h2 Specify a food from the USDA Nutritional Database for display
+
+= render 'shared/flash_messages' unless flash.empty?
+%br
+= form_tag('/food', method: 'get') do
+  = label_tag(:ndbno, 'Database food number:')
+  = text_field_tag(:ndbno)
+  = submit_tag('Specify')

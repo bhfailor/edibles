@@ -20,7 +20,7 @@ class Food
   'food,,base mass,,price,,vegetable mass,,fruit mass,,energy (E),,carbohydr' \
   'ate E,,fat E,,protein E,,alcohol E,,total carbohydrates,,fiber,,starch,,s' \
   'ugars,,total fat,,saturated fat,,monounsaturated fat,,polyunsaturated fat' \
-  ',,total trans fat,,trans-monoeonic,,trans-polyenoic,,omega-3,,omega-6,,pr' \
+  ',,total trans fat,,trans-monoenoic,,trans-polyenoic,,omega-3,,omega-6,,pr' \
   'otein,,tryptophan,,vitamin A,,vitamin C,,vitamin D,,vitamin E,,vitamin K,' \
   ',thiamine,,riboflavin,,niacin,,vitamin B6,,folate,,vitamin B12,,pantothen' \
   'ic acid,,choline,,betaine,,calcium,,iron,,magnesium,,phosphorus,,potassiu' \

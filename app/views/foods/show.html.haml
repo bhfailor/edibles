@@ -1,0 +1,37 @@
+%h1 edibles
+%h2
+  Food nutrient data from the USDA Nutritional Database
+  %br
+  = @food.results['name'][:value]
+
+= render 'shared/flash_messages' unless flash.empty?
+%br
+
+%table
+  %thead
+    %tr
+      %th sheet name
+      %th db name
+      %th sheet unit
+      %th db unit
+      %th value returned
+      %th source
+
+  %tbody
+    - values_row = ''
+    - Food::SOURCES.each do |key|
+      - indx = Food::SOURCES.index(key)
+      - the_value = (@food.results[key] || { value: '0.0' })[:value]
+      - values_row << "#{the_value}\t"
+      - next if indx == 0
+      %tr
+        %td= Food::NAMES[indx]
+        %td= (@food.results[key] || {})[:name]
+        %td= Food::UNITS[indx]
+        %td= (@food.results[key] || {})[:unit]
+        %td= the_value
+        %td= key
+
+%br
+
+= text_area_tag 'values_row', values_row

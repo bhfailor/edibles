@@ -1,0 +1,224 @@
+---
+name:
+  :name: food
+  :unit: string
+  :value: Potatoes, Russet, flesh and skin, baked
+dft:
+  :name: base mass
+  :unit: g
+  :value: '100'
+food price:
+  :name: price
+  :unit: USD
+  :value: user-specified
+vegetable grams:
+  :name: vegetable mass
+  :unit: g
+  :value: user-specified
+fruit grams:
+  :name: fruit mass
+  :unit: g
+  :value: user-specified
+'208':
+  :name: Energy
+  :unit: kcal
+  :value: '97'
+calc carb Cal:
+  :name: carbohydrate E
+  :unit: calorie
+  :value: '85.3'
+calc fat Cal:
+  :name: fat E
+  :unit: calorie
+  :value: '1.2'
+calc protein Cal:
+  :name: protein E
+  :unit: calorie
+  :value: '10.5'
+calc alcohol Cal:
+  :name: alcohol E
+  :unit: calorie
+  :value: '0.0'
+'205':
+  :name: Carbohydrate, by difference
+  :unit: g
+  :value: '21.44'
+'291':
+  :name: Fiber, total dietary
+  :unit: g
+  :value: '2.3'
+'209':
+  :name: Starch
+  :unit: g
+  :value: '17.45'
+'269':
+  :name: Sugars, total
+  :unit: g
+  :value: '1.08'
+'204':
+  :name: Total lipid (fat)
+  :unit: g
+  :value: '0.13'
+'606':
+  :name: Fatty acids, total saturated
+  :unit: g
+  :value: '0.032'
+'645':
+  :name: Fatty acids, total monounsaturated
+  :unit: g
+  :value: '0.003'
+'646':
+  :name: Fatty acids, total polyunsaturated
+  :unit: g
+  :value: '0.054'
+'605':
+  :name: Fatty acids, total trans
+  :unit: g
+  :value: '0.000'
+'693': 
+'695': 
+calc omega-3:
+  :name: omega-3
+  :unit: mg
+  :value: '13.0'
+calc omega-6:
+  :name: omega-6
+  :unit: mg
+  :value: '41.0'
+'203':
+  :name: Protein
+  :unit: g
+  :value: '2.63'
+'501':
+  :name: Tryptophan
+  :unit: g
+  :value: '0.027'
+'318':
+  :name: Vitamin A, IU
+  :unit: IU
+  :value: '10'
+'401':
+  :name: Vitamin C, total ascorbic acid
+  :unit: mg
+  :value: '8.3'
+'328':
+  :name: Vitamin D (D2 + D3)
+  :unit: "µg"
+  :value: '0.0'
+'323':
+  :name: Vitamin E (alpha-tocopherol)
+  :unit: mg
+  :value: '0.07'
+'430':
+  :name: Vitamin K (phylloquinone)
+  :unit: "µg"
+  :value: '2.0'
+'404':
+  :name: Thiamin
+  :unit: mg
+  :value: '0.067'
+'405':
+  :name: Riboflavin
+  :unit: mg
+  :value: '0.048'
+'406':
+  :name: Niacin
+  :unit: mg
+  :value: '1.348'
+'415':
+  :name: Vitamin B-6
+  :unit: mg
+  :value: '0.354'
+'417':
+  :name: Folate, total
+  :unit: "µg"
+  :value: '26'
+'418':
+  :name: Vitamin B-12
+  :unit: "µg"
+  :value: '0.00'
+'410':
+  :name: Pantothenic acid
+  :unit: mg
+  :value: '0.380'
+'421':
+  :name: Choline, total
+  :unit: mg
+  :value: '15.0'
+'454':
+  :name: Betaine
+  :unit: mg
+  :value: '0.2'
+'301':
+  :name: Calcium, Ca
+  :unit: mg
+  :value: '18'
+'303':
+  :name: Iron, Fe
+  :unit: mg
+  :value: '1.07'
+'304':
+  :name: Magnesium, Mg
+  :unit: mg
+  :value: '30'
+'305':
+  :name: Phosphorus, P
+  :unit: mg
+  :value: '71'
+'306':
+  :name: Potassium, K
+  :unit: mg
+  :value: '550'
+'307':
+  :name: Sodium, Na
+  :unit: mg
+  :value: '14'
+'309':
+  :name: Zinc, Zn
+  :unit: mg
+  :value: '0.35'
+'312':
+  :name: Copper, Cu
+  :unit: mg
+  :value: '0.107'
+'315':
+  :name: Manganese, Mn
+  :unit: mg
+  :value: '0.228'
+'317':
+  :name: Selenium, Se
+  :unit: "µg"
+  :value: '0.5'
+'313':
+  :name: Fluoride, F
+  :unit: "µg"
+  :value: '45.2'
+'601':
+  :name: Cholesterol
+  :unit: mg
+  :value: '0'
+'636': 
+'221':
+  :name: Alcohol, ethyl
+  :unit: g
+  :value: '0.0'
+'255':
+  :name: Water
+  :unit: g
+  :value: '74.45'
+'207':
+  :name: Ash
+  :unit: g
+  :value: '1.35'
+'262':
+  :name: Caffeine
+  :unit: mg
+  :value: '0'
+'263':
+  :name: Theobromine
+  :unit: mg
+  :value: '0'
+ndbno:
+  :name: ndb food number
+  :unit: string
+  :value: '11356'

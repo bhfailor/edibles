@@ -46,7 +46,7 @@ describe FoodsController do
       end
 
       it 're-renders the :new template' do
-        expect(response).to render_template :new
+        expect(response).to be_redirect
       end
     end
   end

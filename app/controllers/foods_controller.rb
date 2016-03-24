@@ -4,10 +4,6 @@ class FoodsController < ApplicationController
 
   def show
     @food = Food.new(number: params[:ndbno])
-    if @food.errors
-      flash[:alert] = @food.errors
-      render :new and return
-    end
+    redirect_to({ action: 'new' }, alert: @food.errors) if @food.errors
   end
-
 end
