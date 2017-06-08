@@ -32,7 +32,7 @@ There is no database involved.
 
 * Deployment instructions
 
-`rails server` should start the server using the default, e.g. `thin`.  See `spec/features/display_food_spec.rb` for an example of standard operation.  I follow 3 steps:
+`rails server` should start the server using the default, e.g. `thin`.  See `spec/features/display_food_spec.rb` for an example of standard operation.  I follow the following steps:
 
 1. Find the USDA number for a food of interest from the [USDA database](https://ndb.nal.usda.gov/ndb/search/list)
 2. Enter it on the app's root page and submit the form
